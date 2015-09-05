@@ -54,7 +54,7 @@ public class WordCount {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
 		// get input data
-		DataSet<String> text = env.readTextFile("file:///Users/anirudh/Documents/Hadoop/Flink/flink-quickstart-java/hamlet.txt");
+		DataSet<String> text = env.readTextFile("hdfs://localhost:9000/user/anirudh/hamlet.txt");
 
 		//TODO Remove setParallelism by combining result
 		
@@ -66,7 +66,7 @@ public class WordCount {
 		// group by the tuple field "0" and sum up tuple field "1"
 
 		// execute and print result
-		words.writeAsCsv("file:///Users/anirudh/Documents/Hadoop/Flink/flink-quickstart-java/output", WriteMode.OVERWRITE);
+		words.writeAsCsv("hdfs://localhost:9000/user/anirudh/output", WriteMode.OVERWRITE);
 		words.print();
 	}
 
